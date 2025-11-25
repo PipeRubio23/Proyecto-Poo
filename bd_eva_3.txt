@@ -1,0 +1,49 @@
+create table estados(
+    id_est int primary key,
+    nom_est varchar(20)
+);
+
+create table Usuario(
+    id_usu int primary key auto_increment,
+    nom_usu varchar(20),
+    con_usu varchar(100)
+);
+
+
+create table empleados(
+    id_emp int primary key auto_increment,
+    rut_emp varchar(50),
+    nom_emp varchar(50),
+    ape_emp varchar(50),
+    eda_emp int,
+    fec_emp varchar(50),
+    sal_emp int,	
+    id_est int,
+    foreign key(id_est) references estados(id_est)
+);
+
+create table proyectos(
+    id_pro int primary key auto_increment,
+    tit_pro varchar(50),
+    des_pro varchar(50),
+    fec_pro varchar(50),
+    id_est int,
+    foreign key(id_est) references estados(id_est)	
+);
+
+insert into estados (id_est, nom_est) values (1, 'HABILITADO');
+insert into estados (id_est, nom_est) values (2, 'DESHABILITADO');
+
+insert into usuario (nom_usu, con_usu) values ('GERENTE', 'gAAAAABpE4ot8taOkHq58KfATcrHNKsnHp9_KXKZKErY7I-8HOfW3rL9tE7W5-apTYfAi7clPux0P9xCAfnOok7h7yfPSW91JQ==');
+insert into usuario (nom_usu, con_usu) values ('EMPLEADO', 'gAAAAABpFOxGcucSnh22-_Lu6j8JHvdHRx-CECnyEoavNKfiFIcd9TQHGSXmBrUCxCM3HAYwyQPHHM1psNpngoFHR3fwffrDCw==');
+
+
+insert into empleados (rut_emp, nom_emp, ape_emp, eda_emp, fec_emp, sal_emp, id_est) values ('11.111.111-1','JUAN', 'PEREZ', 35, '05/10/2024', 550000, 1);
+insert into empleados (rut_emp, nom_emp, ape_emp, eda_emp, fec_emp, sal_emp, id_est) values ('22.222.222-2','PEDRO', 'JEREZ',23, '23/04/2024', 750000, 1);
+
+insert into proyectos (tit_pro, des_pro, fec_pro, id_est) values ('proyecto 1', 'proyecto inicio','09/09/2024', 1);
+
+
+
+
+
